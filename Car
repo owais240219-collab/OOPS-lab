@@ -1,0 +1,57 @@
+package owais;
+
+public class Car {
+    String model;
+    String color;
+
+   
+    public Car(String model, String color) {
+        this.model = model;
+        this.color = color;
+    }
+
+  
+    public void start() {
+        if (model != null && !model.isEmpty()) {
+            System.out.println(model + " started");
+        } else {
+            System.out.println("Car started");
+        }
+    }
+
+    public void stop() {
+        System.out.println("Car stopped");
+    }
+
+    
+    public static void main(String[] args) {
+        // TC1: Car("Tesla", "Red")
+        System.out.println("TC1:");
+        Car car1 = new Car("Tesla", "Red");
+        car1.start();
+        System.out.println();
+
+        // TC2: Car("BMW", "Black")
+        System.out.println("TC2:");
+        Car car2 = new Car("BMW", "Black");
+        car2.start();
+        System.out.println();
+
+        // TC3: Car model empty
+        System.out.println("TC3:");
+        Car car3 = new Car("", "Blue");
+        car3.start();
+        System.out.println();
+
+        // TC4: Start method not called
+        System.out.println("TC4:");
+        Car car4 = new Car("Audi", "White");
+        // No start() method called
+        System.out.println();
+
+        // TC5: Call stop method only
+        System.out.println("TC5:");
+        Car car5 = new Car("Ford", "Silver");
+        car5.stop();
+    }
+}
