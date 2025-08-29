@@ -1,0 +1,67 @@
+interface BankingService {
+    void deposit(double amount);
+    void withdraw(double amount);
+    double getBalance();
+}
+
+ class Account implements BankingService {
+    private double balance;
+
+    public Account() {
+        this.balance = 0.0;
+    }
+
+    @Override
+ public void deposit(double amount) {
+        if (amount <= 0) {
+            System.out.println("Invalid deposit amount.");
+            return;
+        }
+        balance += amount;
+        System.out.println("Deposited: ₹" + amount);
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (amount > balance) {
+            System.out.println("Insufficient funds.");
+            return;
+        }
+        if (amount <= 0) {
+            System.out.println("Invalid withdrawal amount.");
+            return;
+        }
+        balance -= amount;
+        System.out.println("Withdrawn: ₹" + amount);
+    }
+
+    
+class transaction {
+    public void log(String message) {
+        System.out.println("Transaction recorded: " + message);
+    }
+}
+public class test {
+    public static void main(String[] args) {
+        BankingService account = new Account();  // Polymorphism
+        transaction transaction = new transaction();
+
+        // TC1: Deposit ₹1000
+        account.deposit(1000);
+        System.out.println("Balance: ₹" + account.getBalance()); // ₹1000
+
+        // TC2: Withdraw ₹500
+        account.withdraw(500);
+        System.out.println("Balance: ₹" + account.getBalance()); // ₹500
+
+        // TC3: Withdraw ₹1500
+        account.withdraw(1500); // Output: Insufficient funds
+
+        // TC4: Deposit negative amount
+        account.deposit(-200); // Output: Invalid deposit
+
+        // TC5: Log transaction
+        transaction.log("Deposited ₹1000 and withdrew ₹500.");
+    }
+}
+ }
