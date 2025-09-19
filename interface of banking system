@@ -43,25 +43,25 @@ class transaction {
 }
 public class test {
     public static void main(String[] args) {
-        BankingService account = new Account();  // Polymorphism
+        BankingService account = new Account();  
         transaction transaction = new transaction();
 
         // TC1: Deposit ₹1000
         account.deposit(1000);
-        System.out.println("Balance: ₹" + account.getBalance()); // ₹1000
+        System.out.println("Balance: ₹" + account.getBalance()); 
 
         // TC2: Withdraw ₹500
         account.withdraw(500);
-        System.out.println("Balance: ₹" + account.getBalance()); // ₹500
+        System.out.println("Balance: ₹" + account.getBalance());
 
         // TC3: Withdraw ₹1500
-        account.withdraw(1500); // Output: Insufficient funds
+        account.withdraw(1500); 
 
         // TC4: Deposit negative amount
-        account.deposit(-200); // Output: Invalid deposit
+        account.deposit(-200); 
 
         // TC5: Log transaction
         transaction.log("Deposited ₹1000 and withdrew ₹500.");
     }
 }
- }
+ 
